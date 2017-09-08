@@ -113,6 +113,48 @@ public class DoublyLinkedList {
 		new_node.prev = last;
 		
 	}
+	
+	public void deleteNode(int pos) {
+		
+		Node tempNode = head;
+		
+		//delete head
+		if(pos == 0){
+			head = head.next;
+			head.prev = null;
+			head.next.prev = head;
+			return;
+		}
+		
+		for(int i = 1; i<pos; i++) {
+			
+			tempNode = tempNode.next;
+		}
+		
+		if(tempNode.next.next == null){
+			tempNode.next = null;
+			return;
+		}
+		tempNode.next = tempNode.next.next;
+		tempNode.next.prev = tempNode;
+	}
+	
+	public void reverseDll() {
+		Node temp = null;
+		Node current = head;
+		
+		while(current != null){
+			temp = current.prev;
+			current.prev = current.next;
+			current.next = temp;
+			current = current.prev;
+		}
+		
+		if (temp != null) {
+            head = temp.prev;
+        }
+		
+	}
 
 	/**
 	 * @param args
@@ -136,7 +178,9 @@ public class DoublyLinkedList {
 		//dll.push(00);
 		//dll.insertAfter(second, 05);
 		//dll.append(05);
-		dll.insertBefore(third, 05);
+		//dll.insertBefore(third, 05);
+		//dll.deleteNode(3);
+		dll.reverseDll();
 		System.out.println("Created DLL is: ");
         dll.printlist(dll.head);
 		
