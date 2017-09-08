@@ -98,14 +98,11 @@ public class SinglyLinkedList {
 		second.next = third;
 		third.next = fourth;
 		
-		//slist.insertFront(8);
 		//slist.insertAfterPos(7, slist.head.next);
 		//slist.append(9);
 		slist.printList();
 		slist.delete(4);
-		
-		slist.printList();
-
+				
 	}
 
 }
