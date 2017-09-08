@@ -2,6 +2,7 @@ package com.datastructures.linkedlist;
 
 public class SinglyLinkedList {
 	
+	//declare head
 	Node head;
 	
 	static class Node {
@@ -102,7 +103,9 @@ public class SinglyLinkedList {
 		//slist.append(9);
 		slist.printList();
 		slist.delete(4);
-				
+		
+		slist.printList();
+
 	}
 
 }
