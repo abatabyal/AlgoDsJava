@@ -3,7 +3,6 @@
  */
 package com.datastructures.linkedlist;
 
-import com.datastructures.linkedlist.SinglyLinkedList.Node;
 
 /**
  * @author stark
@@ -56,7 +55,64 @@ public class DoublyLinkedList {
 		head = new_node;
 	}
 	
+	public void insertAfter(Node prev_Node,int new_data) {
+	         
+	   if(prev_Node == null) {
+	        System.out.println("Previous node cannot be NULL ");
+	        return;
+	    }
+	         
+	    Node new_node = new Node(new_data);
+	         
+	    new_node.next = prev_Node.next;
+	    prev_Node.next = new_node;
+	    new_node.prev = prev_Node;
+	         
+	    if(new_node.next != null) {
+	    	new_node.next.prev = new_node;
+	    }
+	        
+	}
 	
+	public void insertBefore(Node next_node,int new_data) {
+        
+		   if(next_node == null) {
+		        System.out.println("Next node cannot be NULL ");
+		        return;
+		    }
+		         
+		    Node new_node = new Node(new_data);
+		    
+		    
+		    new_node.next = next_node;
+		    new_node.prev = next_node.prev;
+		    next_node.prev.next = new_node;
+		    next_node.prev = new_node;
+	}
+	
+	public void append(int new_data) {
+		
+		Node new_node = new Node(new_data);
+		
+		new_node.next = null;
+		
+		if (head == null) {
+			new_node.prev = null;
+			head = new_node;
+			return;
+		}
+		
+		Node last = head;
+		
+		while(last.next != null) {
+			last = last.next;
+		}
+		
+		last.next = new_node;
+		
+		new_node.prev = last;
+		
+	}
 
 	/**
 	 * @param args
@@ -78,6 +134,9 @@ public class DoublyLinkedList {
 		
 		
 		//dll.push(00);
+		//dll.insertAfter(second, 05);
+		//dll.append(05);
+		dll.insertBefore(third, 05);
 		System.out.println("Created DLL is: ");
         dll.printlist(dll.head);
 		
