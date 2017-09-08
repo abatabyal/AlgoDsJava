@@ -17,7 +17,7 @@ public class SinglyLinkedList {
 	public void printList() {
 		Node n = head;
 		while(n != null) {
-			System.out.println(n.data+" ");
+			System.out.print(n.data+" ");
 			n = n.next;
 		}
 	}
@@ -58,6 +58,33 @@ public class SinglyLinkedList {
 		last.next = new_node;
 		return;
 	}
+	
+	public void delete(int pos) {
+		
+		if (head == null) {
+			return;
+		}
+		
+		Node tempNode = head;
+		if (pos == 0){
+			head = head.next;
+			return;
+		}
+		
+		for (int i = 1; tempNode != null && i < pos; i++) {
+			tempNode = tempNode.next;
+		}
+		
+		if (tempNode.next == null){
+			System.out.println("\nNode does not exist");
+			return;
+		}
+		
+		Node nextNode = tempNode.next.next;
+		
+		tempNode.next = nextNode;
+		System.out.println("\nAfter Deleting Node");
+	}
 
 	public static void main(String[] args) {
 		SinglyLinkedList slist = new SinglyLinkedList();
@@ -65,13 +92,18 @@ public class SinglyLinkedList {
 		slist.head = new Node(1);
 		Node second = new Node(2);
 		Node third = new Node (3);
+		Node fourth = new Node(4);
 		
 		slist.head.next = second;
 		second.next = third;
+		third.next = fourth;
 		
 		//slist.insertFront(8);
 		//slist.insertAfterPos(7, slist.head.next);
-		slist.append(9);
+		//slist.append(9);
+		slist.printList();
+		slist.delete(4);
+		
 		slist.printList();
 
 	}
