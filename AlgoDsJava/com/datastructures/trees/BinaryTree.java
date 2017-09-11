@@ -123,13 +123,13 @@ public class BinaryTree {
 		bt.insert(10);
 		bt.insert(3);
 		bt.insert(8);
-		bt.preorder();
+		/*bt.preorder();
 		System.out.println();
 		bt.inorder();
-		System.out.println();
+		System.out.println();*/
 		bt.postorder();
-		System.out.println("\n"+bt.countNodes());
-		System.out.println(bt.search(19));
+		/*System.out.println("\n"+bt.countNodes());
+		System.out.println(bt.search(19));*/
 
 	}
 
