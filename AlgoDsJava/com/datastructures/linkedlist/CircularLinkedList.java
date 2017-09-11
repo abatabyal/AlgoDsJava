@@ -1,10 +1,5 @@
 package com.datastructures.linkedlist;
 
-<<<<<<< HEAD
-=======
-import javax.print.event.PrintJobAttributeListener;
-
->>>>>>> refs/remotes/origin/master
 public class CircularLinkedList {
 	Node head;
 	Node tail;
