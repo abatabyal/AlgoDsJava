@@ -33,20 +33,37 @@ public class LinkedListQueue {
 		Node new_node = new Node(n);
 		
 		if(rear == null) {
-			front = new_node;
-			rear = new_node;
+			front = rear = new_node;
+			
 		} else {
 			rear.next = new_node;
-			new_node.prev = rear; 
-			rear = new_node.prev;
+			rear = new_node;
 		}
 		size++;
+	}
+	
+	Node delete() {
+		
+		if(front == null){
+			System.out.print("Empty Queue");
+			return null;
+		}
+		
+		Node temp = front;
+		front = front.next;
+		
+		//if front becomes null after deletion
+		if (front == null){
+			rear = null;
+		}
+		return temp;
+		
 	}
 	
 	public void display() {
 		
 		System.out.print("Linked List Queue : ");
-		if(size == 0) {
+		if(size == 0 || isEmpty()) {
 			System.out.print("Empty Queue");
 			return;
 		}
@@ -62,10 +79,12 @@ public class LinkedListQueue {
 	public static void main(String[] args) {
 		LinkedListQueue llq = new LinkedListQueue();
 		llq.insert(1);
-		llq.insert(2);
+		/*llq.insert(2);
 		llq.insert(3);
 		llq.insert(4);
-		llq.insert(5);
+		llq.insert(5);*/
+		llq.display();
+		llq.delete();
 		llq.display();
 		
 	}
