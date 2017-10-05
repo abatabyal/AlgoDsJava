@@ -55,7 +55,11 @@ public class BinaryHeap {
 	}
 	
 	private void heapifyUp (int childInd) {
+		//new element to be percolated up
 		int tmp = heap[childInd];
+		
+		//new item index less than zero
+		//new item less than parent
 		while (childInd > 0 && tmp < heap[parent(childInd)]) {
 			heap[childInd] = heap[parent(childInd)];
 			childInd = parent(childInd);
@@ -64,19 +68,7 @@ public class BinaryHeap {
 	}
 	
 	private void heapifyDown(int ind) {
-		int child;
-		int tmp = heap[ind];
 		
-		while (kChild(ind, 1) < heapSize) {
-			child = minChild(ind);
-			if (heap[child] < tmp) {
-				heap[ind] = heap[child];
-			} else {
-				break;
-			}
-			ind = child;
-		}
-		heap[ind] = tmp;
 	}
 	
 	
@@ -85,10 +77,16 @@ public class BinaryHeap {
 			throw new NoSuchElementException("Overflow");
 		}
 		
+		//adding new element to the end of list
 		heap[heapSize++] = x;
-		//Percolate up
+		//Percolate up passing the last element zero based index
 		heapifyUp(heapSize-1);
-		
+	}
+	
+	public void delMin() {
+		heap[0] = heap[heapSize];
+		heapSize--;
+		heapifyDown(0);
 	}
 	
 	public void display() {
