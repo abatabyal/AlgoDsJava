@@ -3,7 +3,10 @@ package com.algorithms;
 /*
 * Time Complexity: O(n2) as there are two nested loops.
 * Auxiliary Space: O(1)
-* Never makes more than O(n) swaps; Useful when memory write is expensive.*/
+* Never makes more than O(n) swaps; Useful when memory write is expensive.
+* Find the minimum element in unsorted array
+* Swap the found minimum element with the first
+* */
 public class SelectionSort {
 
 	public void sort(int[] ua) {
